@@ -37,5 +37,7 @@ Upgrade a sample virus until you either kill off the entire world, or the world 
   - Research
   - Ports
   - Airports
-
+  
+## Wireframe
+[!wireframe](/wireframe.png)
 
