@@ -39,5 +39,5 @@ Upgrade a sample virus until you either kill off the entire world, or the world 
   - Airports
   
 ## Wireframe
-[!wireframe](/wireframe.png)
+![wireframe](/wireframe.png)
 
