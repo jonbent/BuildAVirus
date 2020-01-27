@@ -6,14 +6,14 @@ Users will be given a couple viruses to choose to play from, based on their choi
 Killing off more people will award more points. Allowing upgrades to be purchased.
 
 ## MVP:
-  - [] Pause, Play, Quit
-  - [] Have sample viruses
-  - [] Be able to spread a virus
-  - [] Add options to spread a virus
-  - [] Add options to upgrade a virus
-  - [] Add options to beat science
-  - [] Be able to win
-  - [] Be able to lose
+  - [ ] Pause, Play, Quit
+  - [ ] Have sample viruses
+  - [ ] Be able to spread a virus
+  - [ ] Add options to spread a virus
+  - [ ] Add options to upgrade a virus
+  - [ ] Add options to beat science
+  - [ ] Be able to win
+  - [ ] Be able to lose
 
 ## Technologies:
 This Project will be implemented using the following technologies:
