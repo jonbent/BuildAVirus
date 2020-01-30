@@ -1,0 +1,18 @@
+{
+  "name": "BuildAVirus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jonbent/BuildAVirus.git",
+  "author": "Jon <jon@cenports.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "watchify scripts/index.js -r fs:browserify-fs -o ./bundle.js"
+  },
+  "dependencies": {
+    "browserify": "^16.5.0",
+    "browserify-fs": "^1.0.0"
+  },
+  "devDependencies": {
+    "watchify": "^3.11.1"
+  }
+}

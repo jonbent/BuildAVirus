@@ -28,6 +28,10 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: 'Gloria Hallelujah', cursive;
+}
+button:focus{
+	outline: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -53,9 +57,47 @@ table {
 	border-spacing: 0;
 }
 
+body{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
 #navbar{
 	height: 5rem;
+	min-height: 5rem;
 	width: 100%;
 	background-color: #3C3744;
 	color: #C0E0DE;
+	display: flex;
+	justify-content: space-between;
+}
+#navbar #navbar-title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 2rem;
+	background-color: #3C3744;
+	filter: brightness(85%);
+}
+#navbar #navbar-title h3{
+	font-size: 200%;
+}
+#navbar #navbar-links {
+	display: flex;
+}
+#navbar #navbar-links a {
+	width: 3rem;
+	margin-right: 1rem;
+}
+
+#content{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	background-color: #C0E0DE;
+}
+
+#flex-break{
+	flex-basis: 100%;
 }

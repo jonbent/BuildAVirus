@@ -1,0 +1,705 @@
+[
+    {
+        "relevance": 1.0,
+        "id": "75ZBmkBzjHobAu5Ruh",
+        "title": "Vehicle Accident - North-America - USA",
+        "description": "Tug COOPERATIVE SPIRIT at around 0530 LT Jan 26 collided with tug CREPPEL, which was pushing 2 barges laden with sulfuric acid, near 123 mile mark, Luling, Mississippi river. Tug CREPPEL sank after collision, 1 crew rescued and 3 went missing. Tug COOPERATIVE SPIRIT was badly damaged, one of barges with sulfuric acid was also damaged, releasing an unknown amount of acid vapor into the air. A number of responsible agencies are responding to accident consequences.",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "vehicle-accident"
+        ],
+        "rank": 30,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T05:34:24Z",
+        "end": "2020-01-27T05:34:24Z",
+        "updated": "2020-01-27T19:08:41Z",
+        "first_seen": "2020-01-27T05:40:17Z",
+        "timezone": "America/Chicago",
+        "location": [
+            -90.350677,
+            29.93453
+        ],
+        "scope": "locality",
+        "country": "US",
+        "place_hierarchies": [
+            [
+                "6295630",
+                "6255149",
+                "6252001",
+                "4331987",
+                "4339583",
+                "4326799"
+            ],
+            [
+                "6295630",
+                "6255149",
+                "6252001",
+                "4331987",
+                "4339583",
+                "4322034"
+            ]
+        ],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "WMXjcExE9rgJYzKEyA",
+        "title": "Vehicle Accident - North-America - USA",
+        "description": "Basketball legend Kobe Bryant died in a helicopter crash in California on Sunday morning.Bryant, 41, was on board a Sikorsky S-76 with four others - who also died, according to the US Federal Aviation Administration (FAA).The S-76 is used for VIP and emergency flights, and is described by manufacturers Lockheed Martin as a \"smooth\" and \"reliable\" model.Its website says: \"Since 1977, more than 875 S-76 aircraft have been delivered world-wide.\"The offshore mission accounts for 65% of the total flight hours accumulated fleet-wide to date. More than 10% of the fleet's flight hours have been flown in the critical life-saving missions of search and rescue and helicopter air ambulance transportation.\"The S-76 is well-known for its work in VIP transportation and utility work. Today, it continues dependable service for all of these mission segments.\"More than 178 customers operate S-76 helicopters in a corporate or VIP role. Ten countries rely on the S-76 for the head of state mission.\"The FAA said in a preliminary statement: \"A S-76 helicopter crashed this morning under unknown circumstances near Calabassas, Calif.\"Local authorities say that five people were on board.\"Please check with local authorities for more information on the condition of the occupants.\"Investigations by the FAA and the National Transportation Safety Board have been launched.",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "vehicle-accident"
+        ],
+        "rank": 30,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T05:23:36Z",
+        "end": "2020-01-27T05:23:36Z",
+        "updated": "2020-01-27T20:26:18Z",
+        "first_seen": "2020-01-27T05:25:47Z",
+        "timezone": "America/Los_Angeles",
+        "location": [
+            -118.661481,
+            34.136721
+        ],
+        "scope": "locality",
+        "country": "US",
+        "place_hierarchies": [
+            [
+                "6295630",
+                "6255149",
+                "6252001",
+                "5332921",
+                "5368381",
+                "5368361"
+            ],
+            [
+                "6295630",
+                "6255149",
+                "6252001",
+                "5332921",
+                "5368381",
+                "5332596"
+            ]
+        ],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "c6Ky7g7qnywQucvG8Q",
+        "title": "M 4.6 - 2km WSW of Ponce, Puerto Rico",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 83,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T05:20:40Z",
+        "end": "2020-01-27T05:20:40Z",
+        "updated": "2020-01-27T17:37:07Z",
+        "first_seen": "2020-01-27T05:30:20Z",
+        "timezone": "America/Puerto_Rico",
+        "location": [
+            -66.637,
+            17.997
+        ],
+        "scope": "locality",
+        "country": "PR",
+        "place_hierarchies": [
+            [
+                "6295630",
+                "6255149",
+                "4566966",
+                "4566886",
+                "7269005",
+                "4566880"
+            ],
+            [
+                "6295630",
+                "6255149",
+                "4566966",
+                "4566886",
+                "7268315",
+                "4565260"
+            ]
+        ],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "54rPuyt7MzJ5LuXt7Z",
+        "title": "Green earthquake alert (Magnitude 6.3M, Depth:17.68km) in Solomon Islands 27/01/2020 05:02 UTC, About 89000 people within 100km.",
+        "description": "On 1/27/2020 5:02:01 AM, an earthquake occurred in Solomon Islands potentially affecting About 89000 people within 100km. The earthquake had Magnitude 6.3M, Depth:17.68km.",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 30,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T05:02:01Z",
+        "end": "2020-01-27T05:02:01Z",
+        "updated": "2020-01-27T19:15:12Z",
+        "first_seen": "2020-01-27T05:20:12Z",
+        "timezone": "Pacific/Guadalcanal",
+        "location": [
+            161.024,
+            -10.1059
+        ],
+        "scope": "locality",
+        "country": "SB",
+        "place_hierarchies": [
+            [
+                "6295630",
+                "6255151",
+                "2103350",
+                "2178484"
+            ]
+        ],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "8JFnHjiL6KLa4VN8Yt",
+        "title": "M 4.8 - 151km S of Bengkulu, Indonesia",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 82,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T03:32:35Z",
+        "end": "2020-01-27T03:32:35Z",
+        "updated": "2020-01-27T18:11:51Z",
+        "first_seen": "2020-01-27T04:25:14Z",
+        "timezone": "Asia/Jakarta",
+        "location": [
+            102.3634,
+            -5.163
+        ],
+        "scope": "locality",
+        "country": "",
+        "place_hierarchies": [],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "s2GKHxQT96Yx9BExHq",
+        "title": "M 4.8 - 52km WNW of Arrifes, Portugal",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 85,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T03:16:33Z",
+        "end": "2020-01-27T03:16:33Z",
+        "updated": "2020-01-27T19:44:17Z",
+        "first_seen": "2020-01-27T03:45:15Z",
+        "timezone": "Atlantic/Azores",
+        "location": [
+            -26.2725,
+            37.8853
+        ],
+        "scope": "locality",
+        "country": "",
+        "place_hierarchies": [],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "g5rvAJfS9Q7ugVA2o2",
+        "title": "M 4.6 - 54km W of Amatignak Island, Alaska",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 79,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-26T22:40:28Z",
+        "end": "2020-01-26T22:40:28Z",
+        "updated": "2020-01-27T18:31:13Z",
+        "first_seen": "2020-01-26T22:55:13Z",
+        "timezone": "America/Adak",
+        "location": [
+            -179.8814,
+            51.227
+        ],
+        "scope": "locality",
+        "country": "",
+        "place_hierarchies": [],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "fv8wjRMpbdiGaD5NLM",
+        "title": "Green earthquake alert (Magnitude 5.7M, Depth:35km) in United States 26/01/2020 22:33 UTC, No people within 100km.",
+        "description": "On 1/26/2020 10:33:40 PM, an earthquake occurred in United States potentially affecting No people within 100km. The earthquake had Magnitude 5.7M, Depth:35km.",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 30,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-26T22:33:40Z",
+        "end": "2020-01-26T22:33:40Z",
+        "updated": "2020-01-27T19:38:43Z",
+        "first_seen": "2020-01-26T22:50:10Z",
+        "timezone": "America/Adak",
+        "location": [
+            -179.9871,
+            51.3133
+        ],
+        "scope": "locality",
+        "country": "US",
+        "place_hierarchies": [
+            [
+                "6295630",
+                "6255149",
+                "6252001",
+                "5879092",
+                "5879164",
+                "4045510"
+            ]
+        ],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "5sQkSDN8cYx2oTrbn9",
+        "title": "M 5.7 - 61km W of Amatignak Island, Alaska",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 61,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-26T22:33:40Z",
+        "end": "2020-01-26T22:33:40Z",
+        "updated": "2020-01-27T19:57:48Z",
+        "first_seen": "2020-01-26T22:41:39Z",
+        "timezone": "America/Adak",
+        "location": [
+            -179.9871,
+            51.3133
+        ],
+        "scope": "locality",
+        "country": "",
+        "place_hierarchies": [],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "kwzjL2koHxWxL7img9",
+        "title": "M 5.3 - 33km W of Villazon, Bolivia",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 66,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-26T18:44:04Z",
+        "end": "2020-01-26T18:44:04Z",
+        "updated": "2020-01-27T18:27:07Z",
+        "first_seen": "2020-01-26T19:00:13Z",
+        "timezone": "America/Argentina/Jujuy",
+        "location": [
+            -65.9192,
+            -22.0396
+        ],
+        "scope": "locality",
+        "country": "",
+        "place_hierarchies": [],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "73BsgbgWdYNjnoqDAK",
+        "title": "M 5.1 - 206km SSW of Taron, Papua New Guinea",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 82,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T19:13:25Z",
+        "end": "2020-01-27T19:13:25Z",
+        "updated": "2020-01-27T19:46:27Z",
+        "first_seen": "2020-01-27T19:30:20Z",
+        "timezone": "Pacific/Port_Moresby",
+        "location": [
+            152.5612,
+            -6.276
+        ],
+        "scope": "locality",
+        "country": "",
+        "place_hierarchies": [],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "F2hJNzPALtSvcDpvoq",
+        "title": "M 5.2 - 53km W of Amatignak Island, Alaska",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 81,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T15:51:49Z",
+        "end": "2020-01-27T15:51:49Z",
+        "updated": "2020-01-27T17:19:30Z",
+        "first_seen": "2020-01-27T16:30:18Z",
+        "timezone": "America/Adak",
+        "location": [
+            -179.868,
+            51.2288
+        ],
+        "scope": "locality",
+        "country": "",
+        "place_hierarchies": [],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "vDfyhZq3wDbrDrR8pe",
+        "title": "Vehicle Accident - Atlantic Ocean - North - The Bahamas",
+        "description": "31 Haitian boat people were spotted and rescued by the military ship HMBS LLSmith of the Royal Bahamas Defense Force (RBDF) between Maycock Cay and Double Breast Cay after their loaded boat was wrecked.According to the testimonies of the survivors, their boat capsized around January 13 and they survived on the cays (small low islands mainly composed of corals and sand). They told investigators that there were other missing persons, including at least 5 women, but they were unable to provide a precise number of the passengers who had left Port-de-Paix in Haiti, in hope for a better life...\r\nAs a result, RBDF air assets, as well as OPBAT air support, swept the area with negative observations.On January 24, a boater reported seeing a body stranded at Double Breast Cay around noon and another body an hour later. A third lifeless shipwrecked man was also found by residents in the vicinity of Hog Cay, about three kilometers southwest of Double Breast Cay.Members of the EBDF and the Royal Bahamas Police Force CDU continue to search for possible survivors in the small islands (cay) of Ragged Island.",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "vehicle-accident"
+        ],
+        "rank": 30,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T14:54:01Z",
+        "end": "2020-01-27T14:54:01Z",
+        "updated": "2020-01-27T18:52:18Z",
+        "first_seen": "2020-01-27T15:00:30Z",
+        "timezone": "America/Nassau",
+        "location": [
+            -75.762998,
+            22.296822
+        ],
+        "scope": "locality",
+        "country": "BS",
+        "place_hierarchies": [
+            [
+                "6295630",
+                "6255149",
+                "3572887",
+                "3571629",
+                "3572467"
+            ]
+        ],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "Bfpj3Ta6YuKWiKeH9N",
+        "title": "Vehicle Accident - Europe - Greece",
+        "description": "A car carrying Syrians crashed early Monday in northern Greece, police said, injuring all 14 people in the vehicle that is believed to have crossed the border clandestinely .Police said the car had been travelling along an old highway in northern Greece toward the country's second-largest city of Thessaloniki around 2 a.m. when it failed to stop for a police check. The car's driver then lost control of the vehicle and crashed.Greek police said all were from Syria: 11 men, one woman and two teenage children. Eight, including the teenagers, were treated for their injuries in a hospital and released. The other six remained hospitalized, including the suspected driver, a 22-year-old man.Thousands of migrants and refugees still arrive in Greece from neighboring Turkey each year. Most come by sea to the nearby Greek islands but others use the land border, wading, swimming or rowing across the river that divides Turkey and Greece. They then pack into smugglers' cars and head to Greece's cities.",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "vehicle-accident"
+        ],
+        "rank": 30,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T14:51:10Z",
+        "end": "2020-01-27T14:51:10Z",
+        "updated": "2020-01-27T21:06:07Z",
+        "first_seen": "2020-01-27T14:55:25Z",
+        "timezone": "Europe/Athens",
+        "location": [
+            23.0426,
+            40.389835
+        ],
+        "scope": "locality",
+        "country": "GR",
+        "place_hierarchies": [
+            [
+                "6295630",
+                "6255148",
+                "390903",
+                "6697801",
+                "735804",
+                "8133870",
+                "734968"
+            ],
+            [
+                "6295630",
+                "6255148",
+                "390903",
+                "6697801",
+                "734075",
+                "8133841",
+                "734077"
+            ]
+        ],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "BSEFkEGJuybmTctnNe",
+        "title": "Fire - North-America - USA",
+        "description": "Boaters leaped into the water to escape a fire that consumed at least 35 vessels docked along the Tennessee River early Monday. Authorities said there were fatalities as 7 people were sent to hospitals and 7 others were initially reported missing.The blaze was reported shortly after midnight as people living in the boats were sleeping, and consumed the wooden dock and an aluminum roof that covered many of the vessels, cutting off escape routes and raining debris into the water.\"There were numerous people rescued from the water who had escaped by going into the water,\" Jackson County Chief Sheriff's Deputy Rocky Harnen told The Associated Press shortly after dawn. \"We're trying to get divers down here to search for possible victims in the water.\"Mandy Durham was on her boyfriend's boat when the fire broke out on the B dock, about 50 yards (46 meters) from the A dock where their vessel is moored.\"We woke up hearing screams and popping noises,\" she said. \"When we woke up, we could see red through the window.\"\"Within 15 to 20 minutes, the whole dock was in flames.,\" she said. \"All these boats have propane tanks and gas tanks, and that's a lot of fire.\"People were jumping onto a boat at the end of the dock because fire had consumed the middle portion and that was their only escape. But then the flames spread to that boat, leaving water as their only escape route, Durham said.\"Water was the only place they had to go,\" Durham said. \"Its just extremely sad. It's horrible.\"Harnen said \"we have some confirmed fatalities, but we don't have an exact number yet.\"\"We have several people who were taken to the hospital from being in the water, and some had minor burns,\" Harnen added.Scottsboro Fire Chief Gene Necklaus said earlier that 7 people were hospitalized and 7 others were missing as the fire destroyed at least 35 boats docked in Jackson County Park.Harnen said officials are trying to account for about seven people who had places on the dock.",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "fire"
+        ],
+        "rank": 30,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T14:37:16Z",
+        "end": "2020-01-27T14:37:16Z",
+        "updated": "2020-01-27T20:55:37Z",
+        "first_seen": "2020-01-27T14:40:30Z",
+        "timezone": "America/Chicago",
+        "location": [
+            -86.014234,
+            34.638417
+        ],
+        "scope": "locality",
+        "country": "US",
+        "place_hierarchies": [
+            [
+                "6295630",
+                "6255149",
+                "6252001",
+                "4829764",
+                "4069472",
+                "4096675"
+            ],
+            [
+                "6295630",
+                "6255149",
+                "6252001",
+                "4829764",
+                "4069472",
+                "4088916"
+            ]
+        ],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "ALCPdY2yXPM3wDXUk8",
+        "title": "M 5.2 - 38km E of Kazerun, Iran",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 85,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T13:28:27Z",
+        "end": "2020-01-27T13:28:27Z",
+        "updated": "2020-01-27T19:10:17Z",
+        "first_seen": "2020-01-27T13:45:10Z",
+        "timezone": "Asia/Tehran",
+        "location": [
+            52.0545,
+            29.6008
+        ],
+        "scope": "locality",
+        "country": "",
+        "place_hierarchies": [],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "7qXeAGVL4mwMZZF5LY",
+        "title": "Vehicle Accident - Middle-East - Iran",
+        "description": "An Iranian passenger airliner carrying some 150 passengers skidded off the runway and into a street next to the airport in the southern city of Mahshahr on Monday, after apparently losing its landing gear in a hard landing.No major injuries were reported. The passengers calmly exited the plane from a front door and one over the wing, still with carry-on baggage in hand, according to footage posted on state-run TV's website. The footage showed passengers being helped to the street below by people on the ground.Provincial airport director Mohammad Reza Rezanian said all of the passengers had been safely taken off the plane.It seems that tragedy was narrowly avoided, however, as images from the scene showed the plane had ground to a halt not far from a populated area.The incident comes as Iran is still coping with the aftermath of the accidental downing of a Ukrainian airliner over Tehran. The plane was shot down by the Revolutionary Guard earlier this month amid heightened tensions with the United States, killing all 176 people aboard.Iranian state television said the plane involved in Monday's incident came in harder than usual and lost its landing gear as it hit the tarmac.No landing gear was evident in pictures of the plane after the accident, but it was not immediately clear if it failed to deploy or somehow collapsed as the jet hit runway at about 9:30 a.m. local time. The accident is under investigation, officials said.The flight from the Tehran-based airline originated in the Iranian capital.Iranian reports identified the plane only as a McDonnell Douglas without being more specific, but Caspian has only the McDonnell Douglas MD-83s in its fleet.",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "vehicle-accident"
+        ],
+        "rank": 30,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T08:44:30Z",
+        "end": "2020-01-27T08:44:30Z",
+        "updated": "2020-01-27T18:50:22Z",
+        "first_seen": "2020-01-27T08:50:17Z",
+        "timezone": "Asia/Tehran",
+        "location": [
+            49.162906,
+            30.546277
+        ],
+        "scope": "locality",
+        "country": "IR",
+        "place_hierarchies": [
+            [
+                "6295630",
+                "6255147",
+                "130758",
+                "127082",
+                "141663"
+            ],
+            [
+                "6295630",
+                "6255147",
+                "130758",
+                "127082",
+                "44992"
+            ]
+        ],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "pn9goJdgmunCbdmSpb",
+        "title": "M 4.6 - 74km WSW of Palana, Russia",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 84,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T08:27:46Z",
+        "end": "2020-01-27T08:27:46Z",
+        "updated": "2020-01-27T20:58:28Z",
+        "first_seen": "2020-01-27T09:35:14Z",
+        "timezone": "Asia/Kamchatka",
+        "location": [
+            158.8355,
+            58.7977
+        ],
+        "scope": "locality",
+        "country": "",
+        "place_hierarchies": [],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "z9WKmDJhLhHYkkMYNo",
+        "title": "M 4.6 - 86km W of Kabanjahe, Indonesia",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 69,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T08:03:41Z",
+        "end": "2020-01-27T08:03:41Z",
+        "updated": "2020-01-27T20:36:02Z",
+        "first_seen": "2020-01-27T08:55:11Z",
+        "timezone": "Asia/Jakarta",
+        "location": [
+            97.7135,
+            3.0784
+        ],
+        "scope": "locality",
+        "country": "",
+        "place_hierarchies": [],
+        "state": "active"
+    },
+    {
+        "relevance": 1.0,
+        "id": "evk8edtCwVyjQ9FXk7",
+        "title": "M 4.6 - 5km WSW of Ponce, Puerto Rico",
+        "description": "",
+        "category": "disasters",
+        "labels": [
+            "disaster",
+            "earthquake"
+        ],
+        "rank": 83,
+        "local_rank": null,
+        "entities": [],
+        "duration": 0,
+        "start": "2020-01-27T06:53:22Z",
+        "end": "2020-01-27T06:53:22Z",
+        "updated": "2020-01-27T17:20:41Z",
+        "first_seen": "2020-01-27T07:00:15Z",
+        "timezone": "America/Puerto_Rico",
+        "location": [
+            -66.662,
+            17.986
+        ],
+        "scope": "locality",
+        "country": "PR",
+        "place_hierarchies": [
+            [
+                "6295630",
+                "6255149",
+                "4566966",
+                "4566886",
+                "7268315",
+                "4568458"
+            ],
+            [
+                "6295630",
+                "6255149",
+                "4566966",
+                "4566886",
+                "7269005",
+                "4566880"
+            ]
+        ],
+        "state": "active"
+    }
+]

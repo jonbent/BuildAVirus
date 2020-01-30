@@ -1,0 +1,61 @@
+.splash{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #C0E0DE;
+    color: #000103;
+}
+
+.splash h3.splash-header{
+    background-color: #000103;
+    color: #C0E0DE;
+    padding: 2rem 0;
+    font-size: 200%;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+}
+.splash h3{
+    padding: 2rem 0;
+    font-size: 200%;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+}
+
+.splash .splash-content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.splash .splash-card{
+    width: 70%;
+    height: 70%;
+    color: #000103;
+    display: flex;
+    flex-direction: column;
+
+}
+.splash .splash-card .splash-selection{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.splash .splash-card .splash-selection .selection-box{
+    width: 7rem;
+    height: 3rem;
+    background-color: #3C3744;
+    color: #C0E0DE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
