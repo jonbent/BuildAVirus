@@ -55,7 +55,7 @@ module.exports = class Game {
         let total = 0;
         this.countryKeys.forEach(key => {
             const curCountry = this.countries[key];
-            total += Math.round((curCountry.numInfected / curCountry.population) * 100);
+            total += Math.round((curCountry.numInfected / curCountry.population) * 100) * 5;
         });
         total += this.numBubblesClicked * 100;
         return total
@@ -67,7 +67,7 @@ module.exports = class Game {
             height: null, // If not null, datamaps will grab the height of 'element'
             width: null, // If not null, datamaps will grab the width of 'element',
             fills: {
-                defaultFill: 'red', // Any hex, color name or rgb/rgba value
+                defaultFill: 'rgb(0,128,0)', // Any hex, color name or rgb/rgba value
 
             },
             geographyConfig: {
@@ -77,6 +77,7 @@ module.exports = class Game {
         });
         this.countrySelectHandler();
         this.upgradeButtonHandler();
+        this.fatalityButtonHandler();
     }
     getCountry(countryName){
         if (!countryName || !this.countries[countryName]) return null;
@@ -105,9 +106,12 @@ module.exports = class Game {
             if (!this.startingCountry) {
                 worldInfo.classList.add('started');
                 worldInfoSpecific.classList.add('started');
+                this.map.updateChoropleth({
+                    [this.countries[geo.properties.name].id]: 'red'
+                });
             }
 
-            let info = {name: geo.properties.name, populationTotal: this.totalPop(geo.properties.name), populationNow: this.numAlive(geo.properties.name)}
+            let info = {name: geo.properties.name, totalPop: this.totalPop(geo.properties.name), healthyPop: this.numHealthy(geo.properties.name), infectedPop: this.numInfected(geo.properties.name), deadPop: this.numKilled(geo.properties.name)}
             this.selectedCountry = geo.properties.name;
             if (!this.startingCountry) {
                 this.startingCountry = geo.properties.name;
@@ -117,8 +121,11 @@ module.exports = class Game {
                 // this.countries[geo.properties.name].spreadChance = 60;
                 this.updateInfoPanel();
                 this.countryKeys.forEach(c => this.countries[c].tick());
+
                 this.countries[this.selectedCountry].startSpread()
+
                 this.board.generateBubble({event: {title: `${this.selectedCountry} has been infected`, description: `${this.virus.name} has started taking control of it's hosts`}, location: this.countries[this.selectedCountry]})
+
             } else {
                 worldInfoSpecific.innerHTML = worldInfoItem(info);
                 worldInfoSpecific.style.opacity = '1';
@@ -140,9 +147,23 @@ module.exports = class Game {
             })
         })
     }
+    renderFatalityModal(){
+        window.renderModal('fatalityPaths', {virus: this.virus})
+        document.querySelectorAll('.modal-upgrades > div').forEach(el => {
+            const upgradeType = el.id.split('-')[0];
+            el.querySelector('.input-and-action svg').addEventListener('click', () => {
+                this.purchaseFatality(upgradeType);
+            })
+        })
+    }
     upgradeButtonHandler(){
         document.querySelector('#upgrade-arrow').addEventListener('click', () => {
             this.renderUpgradeModal()
+        })
+    }
+    fatalityButtonHandler(){
+        document.querySelector('#upgrade-skull').addEventListener('click', () => {
+            this.renderFatalityModal()
         })
     }
     purchaseUpgrade(type){
@@ -150,23 +171,41 @@ module.exports = class Game {
         if (numPoints <= this.points ){
             this.pointsSpent += numPoints;
             this.virus.upgradeAbility(type);
-            this.renderUpgradeModal()
+            this.renderUpgradeModal();
+        } else {
+            console.log('this is not enough')
+        }
+    }
+    purchaseFatality(type){
+        const numPoints = this.virus.getFatalityCost(type);
+        if (numPoints <= this.points ){
+            this.pointsSpent += numPoints;
+            this.virus.upgradeFatality(type);
+            this.renderFatalityModal()
         } else {
             console.log('this is not enough')
         }
     }
     infectCountry(country, startCountry = null, num = 1){
-        if (startCountry) num = startCountry.numInfected > 0 ? num : 0;
+        const returnVal = country.infected
+        if (startCountry) num = startCountry.numInfected > 0 || (startCountry.numInfected === startCountry.numKilled && startCountry.numInfected > 0) ? num : 0;
         if (country){
-            country.numInfected += num;
+            if (country.numInfected + num >= country.population){
+                country.numInfected = country.population
+            } else {
+                country.numInfected += num;
+            }
         }
-        console.log(num)
-        if (num === 0) return false;
-        return true;
+        if (num > 0 && returnVal === false) return true;
+        return false;
     }
 
     gameOver(){
-        if (this.numInfected() === this.totalPop() || this.totalSpreadChance() === 0) return true;
+        let killedOff = 0;
+        let spreadRate = 0;
+        this.countryKeys.forEach((key) => {
+            if (this.countries[key].numInfected === this.countries[key].numKilled) killedOff += 1
+        })
         return false;
     }
     won(){
@@ -188,11 +227,25 @@ module.exports = class Game {
         });
     }
 
-    numAlive(countryName = null){
+    numHealthy(countryName = null){
         if (countryName) return this.countries[countryName].population - this.countries[countryName].numInfected;
         return this.countryKeys.reduce((acc, cName, idx) => {
             if (idx === 1) acc = 0;
             return acc + this.countries[cName].population - this.countries[cName].numInfected;
+        });
+    }
+    numAlive(countryName = null){
+        if (countryName) return this.countries[countryName].numAlive();
+        return this.countryKeys.reduce((acc, cName, idx) => {
+            if (idx === 1) acc = 0;
+            return acc + this.countries[cName].numAlive();
+        });
+    }
+    numKilled(countryName = null){
+        if (countryName) return this.countries[countryName].numKilled;
+        return this.countryKeys.reduce((acc, cName, idx) => {
+            if (idx === 1) acc = 0;
+            return acc + this.countries[cName].numKilled;
         });
     }
     totalPop(countryName = null){
@@ -207,10 +260,6 @@ module.exports = class Game {
             this.countries[countryName].spreadRate = spread;
         }
     }
-    startSpread(countryName){
-        if (!this.started) setInterval(() => document.querySelector('#world-info').innerHTML = worldInfoItem( {name: 'World', populationTotal: this.totalPop(), populationNow: this.numAlive()}))
-        // }, this.countries[countryName].spreadRate );
-    }
     startEvents(){
         this.eventsStarted = true;
         const min = 30000, max = 7000;
@@ -222,6 +271,10 @@ module.exports = class Game {
     }
     updateInfoPanel(){
         setInterval(() => {
+            if (this.gameOver()) {
+                const interval = setInterval(() => {}, 99999);
+                for (var i = 1; i < interval; i++) clearInterval(i);
+            }
             const totalPoints = this.calculateTotalPoints();
             this.points = totalPoints - this.pointsSpent;
             const statsContainer = document.querySelector('#stats');
@@ -230,9 +283,9 @@ module.exports = class Game {
             statsContainer.querySelector('#points-gained').innerHTML = totalPoints;
             const worldInfo = document.querySelector('#world-info');
             const worldInfoSpecific = document.querySelector('#world-info-specific')
-            let info = {name: this.selectedCountry, populationTotal: this.totalPop(this.selectedCountry), populationNow: this.numAlive(this.selectedCountry)};
+            let info = {name: this.selectedCountry, totalPop: this.totalPop(this.selectedCountry), healthyPop: this.numHealthy(this.selectedCountry), infectedPop: this.numInfected(this.selectedCountry), deadPop: this.numKilled(this.selectedCountry)}
             worldInfoSpecific.innerHTML = worldInfoItem(info);
-            info = {name: 'World', populationTotal: this.totalPop(), populationNow: this.numAlive()};
+            info = {name: "World", totalPop: this.totalPop(), healthyPop: this.numHealthy(), infectedPop: this.numInfected(), deadPop: this.numKilled() };
             worldInfo.innerHTML = worldInfoItem(info);
         }, 1000);
 

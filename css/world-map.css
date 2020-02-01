@@ -134,3 +134,11 @@
     justify-content: center;
     align-items: center;
 }
+#game-actions > div:not(:nth-of-type(1)) {
+    margin-left:5rem;
+}
+#game-actions > div svg{
+    height: 5rem;
+    width: 5rem;
+    cursor: pointer;
+}

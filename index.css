@@ -93,6 +93,7 @@ body{
 
 #content{
 	height: 100%;
+	max-height: calc(100% - 5rem);
 	width: 100%;
 	display: flex;
 	background-color: #C0E0DE;

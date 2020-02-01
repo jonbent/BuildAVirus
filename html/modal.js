@@ -1,5 +1,6 @@
-const confirmStart = require('./modalTypes/confirmStart')
-const upgradePaths = require('./modalTypes/upgradePaths')
+const confirmStart = require('./modalTypes/confirmStart');
+const upgradePaths = require('./modalTypes/upgradePaths');
+const fatalityPaths = require('./modalTypes/fatalityPaths');
 module.exports = (modalType, options = {}) => {
     let modal;
     switch(modalType){
@@ -8,6 +9,9 @@ module.exports = (modalType, options = {}) => {
             break;
         case "upgradePaths":
             modal = upgradePaths(options);
+            break;
+        case "fatalityPaths":
+            modal = fatalityPaths(options);
             break;
         default:
             modal = confirmStart;

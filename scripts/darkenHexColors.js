@@ -1,6 +1,6 @@
 module.exports = (color, percent) => {
   	const num = parseInt(color,16),
-		amt = Math.round(-1 * Math.round(percent / 500000)),
+		amt = Math.round(-2.5 * Math.round(percent / 50000)),
 		R = (num >> 16) + amt,
 		B = (num >> 8 & 0x00FF) + amt,
 		G = (num & 0x0000FF) + amt;

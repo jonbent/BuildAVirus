@@ -4,6 +4,7 @@ const SmallPox = require('./virusGame/virusClasses/SmallPox');
 // window.country_pop = require('../json/country_populations');
 // window.airports = require('../json/airports');
 const arrowInCircle = require('../html/svg/arrow-in-circle');
+const skullAndBones = require('../html/svg/skull-and-bones');
 document.addEventListener('DOMContentLoaded', () => {
     virusSelectHandler();
 });
@@ -58,6 +59,7 @@ const renderMap = (virus) => {
                     </div>
                     <div id="game-actions">
                         <div>${arrowInCircle}</div>
+                        <div>${skullAndBones}</div>
                     </div>
                 </div>
             </div>`;
