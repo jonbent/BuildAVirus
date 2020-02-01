@@ -1,0 +1,134 @@
+[
+  {
+    "title": "Earthquake",
+    "description": "A deadly earthquake just hit, ripping up the streets",
+    "severity": 5,
+    "type": "negative"
+  },
+  {
+    "title": "Hurricane",
+    "description": "A large wind circle spotted in the coast, creating havoc and panic",
+    "severity": 6,
+    "type": "negative"
+  },
+  {
+    "title": "Tornado",
+    "description": "A violent wind circle comes crushing in, tearing up buildings and sending cats flying",
+    "severity": 4,
+    "type": "negative"
+  },
+  {
+    "title": "Tsunami",
+    "description": "A big wave of water was just spotted on the coast",
+    "severity": 5,
+    "type": "negative"
+  },
+  {
+    "title": "Flood",
+    "description": "Water is covering the entire region, tens of thousands of people are sitting on their roofs waiting for evacuation",
+    "severity": 5,
+    "type": "negative"
+  },
+  {
+    "title": "Cold Wave",
+    "description": "Snow is covering as far as the eye can see, people are freezing",
+    "severity": 7,
+    "type": "negative"
+  },
+  {
+    "title": "Atom Bomb",
+    "description": "A big mushroom cloud was just spotted, blowing up",
+    "severity": 10,
+    "type": "negative"
+  },
+  {
+    "title": "Sharknado",
+    "description": "Watch out! Sharks are falling from the sky and eating people!",
+    "severity": 7,
+    "type": "negative"
+  },
+  {
+    "title": "Zombie Apocalypse",
+    "description": "Zombies are taking over. Humans are struggling to stay away from thse walking beasts",
+    "severity": 9,
+    "type": "negative"
+  },
+  {
+    "title": "Meteor Strike",
+    "description": "A big flying rock flies out of the sky and knocks one guy out. good job!",
+    "severity": 0.1,
+    "type": "negative"
+  },
+  {
+    "title": "Jesus has risen",
+    "description": "Jesus comes down from heaven, realizes the mistake he has made, kills 10 men out of spite, and goes back to where he came from",
+    "severity": 1,
+    "type": "negative"
+  },
+  {
+    "title": "Scientists fight to find a cure",
+    "description": "The infectious disease specialists have grown tired of letting everyone die",
+    "severity": 3,
+    "type": "positive"
+  },
+  {
+    "title": "Doctors have cured a strain",
+    "description": "The humans have fought hard, and developed an immunity",
+    "severity": 3,
+    "type": "positive"
+  },
+  {
+    "title": "The Clouds have parted",
+    "description": "Bad weather has gone, leaving the humans with hope",
+    "severity": 1,
+    "type": "positive"
+  },
+  {
+    "title": "If there was a zombie apocalypse, there isn't one now.",
+    "description": "The townspeople have crowded together to shoot down all zombie looking people. They claim all were zombies, but who knows",
+    "severity": 1,
+    "type": "positive"
+  },
+  {
+    "title": "Looting incurs",
+    "description": "Hundreds have gotten together to take over the local supermarket",
+    "severity": 1,
+    "type": "negative"
+  },
+  {
+    "title": "The Government is being overthrown",
+    "description": "The mutants have taken over",
+    "severity": 4,
+    "type": "negative"
+  },
+  {
+    "title": "Santa is coming to town",
+    "description": "The thought of the elf slaver coming to town gives everyone hope",
+    "severity": 3,
+    "type": "positive"
+  },
+  {
+    "title": "United States invades your country",
+    "description": "Looks like Donald Trump thinks you have oil... I mean freedom",
+    "severity": 10,
+    "type": "negative"
+  },
+  {
+    "title": "R. Kelly gets out of jail",
+    "description": "Little girl's hearts around the globe skip a beat",
+    "severity": 2,
+    "type": "positive"
+  },
+  {
+    "title": "Satan emerges from ashes of dead infants",
+    "description": "He brought coke and hookers",
+    "severity": 2,
+    "type": "positive"
+  },
+  {
+    "title": "Everyone's a trillionare",
+    "description": "Too bad it's in Zimbabwe's currency, meaning everyone has roughly $0.004",
+    "severity": 4,
+    "type": "negative"
+  }
+]

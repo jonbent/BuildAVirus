@@ -1,0 +1,94 @@
+#modal-container{
+    position: fixed;
+    left:0;
+    right:0;
+    bottom: 0;
+    top:0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#modal-child{
+    background-color: #3C3744;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #C0E0DE;
+}
+
+#modal-title{
+    padding: 1rem 0;
+    font-size: 200%;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    background-color: #000103;
+    border-radius: 10px 10px 0 0;
+}
+
+#modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#modal-body > div {
+    margin: 1rem;
+}
+
+#modal-body button{
+    width: 80%;
+    border-radius: 10px;
+    min-height: 3rem;
+    cursor: pointer;
+    color: #C0E0DE;
+    background-color: #000103;
+    border: none;
+}
+#upgrade-arrow{
+    transform: rotate(-90deg);
+    height: 5rem;
+    width: 5rem;
+    cursor: pointer;
+}
+.confirm-button{
+    margin:2rem;
+}
+
+.modal-upgrades{
+    display: flex;
+}
+.modal-upgrades > div {
+    height: 9rem;
+    display: flex;
+    flex-direction: column;
+}
+.modal-upgrades > div > div{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.modal-upgrades > div > div svg path{
+    fill: black;
+}
+.modal-upgrades > div > div svg{
+    transform: rotate(180deg);
+    height: 2rem;
+    width: 2.5rem;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+.modal-upgrades > div > div input{
+    height: 2.5rem;
+    width: 2.75rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+    border:none;
+    cursor: default;
+    margin-right: 1rem;
+}
