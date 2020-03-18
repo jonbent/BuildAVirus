@@ -19,7 +19,7 @@ const worldInfoItem = require('../../html/world-info-item');
 
 module.exports = class Game {
     constructor(virus) {
-        this.startGame()
+        this.startGame();
         this.board = new Board({map: this.map, game: this});
         this.events = events;
         this.intervals = {};
@@ -28,7 +28,13 @@ module.exports = class Game {
         this.pointsSpent = 0;
         this.points = 0;
         this.virus = new virus({game: this});
-        window.virus = this.virus
+        this.upgradeDescriptions = {
+            mosquito: `Transmit ${this.virus.name} through mosquitos. This upgrade is more effective in poorer countries.`,
+            bird: `Transmit ${this.virus.name} through birds. This upgrade is semi-effective all across the world.`,
+            contact: `Transmit ${this.virus.name} through human contact. This upgrade is more effective in dense areas.`,
+            congestion: `Transmit ${this.virus.name} through human contact. This upgrade is semi-effective all across the world.`,
+        };
+        window.virus = this.virus;
 
         const newCountries = {};
         Object.keys(countries).forEach(cName => {
@@ -48,8 +54,7 @@ module.exports = class Game {
         this.numBubblesClicked = 0;
         this.selectedCountry = null;
         this.startingCountry = null;
-
-        // this.startEvents();
+        this.selectedUpgrade = null;
     }
     calculateTotalPoints(){
         let total = 0;
@@ -139,22 +144,22 @@ module.exports = class Game {
         });
     }
     renderUpgradeModal(){
-        window.renderModal('upgradePaths', {virus: this.virus})
-        document.querySelectorAll('.modal-upgrades > div').forEach(el => {
+        window.renderModal('upgradePaths', {virus: this.virus, selectedUpgrade: this.selectedUpgrade});
+        document.querySelectorAll('.modal-upgrades > .action-row > .actions').forEach(el => {
             const upgradeType = el.id.split('-')[0];
-            el.querySelector('.input-and-action svg').addEventListener('click', () => {
-                this.purchaseUpgrade(upgradeType);
+            el.querySelector('svg g').addEventListener('click', () => {
+                this.selectUpgrade(upgradeType);
             })
         })
     }
     renderFatalityModal(){
         window.renderModal('fatalityPaths', {virus: this.virus})
-        document.querySelectorAll('.modal-upgrades > div').forEach(el => {
-            const upgradeType = el.id.split('-')[0];
-            el.querySelector('.input-and-action svg').addEventListener('click', () => {
-                this.purchaseFatality(upgradeType);
-            })
-        })
+        // document.querySelectorAll('.modal-upgrades > div').forEach(el => {
+        //     const upgradeType = el.id.split('-')[0];
+            // el.querySelector('.input-and-action svg').addEventListener('click', () => {
+            //     this.purchaseFatality(upgradeType);
+            // })
+        // })
     }
     upgradeButtonHandler(){
         document.querySelector('#upgrade-arrow').addEventListener('click', () => {
@@ -165,6 +170,17 @@ module.exports = class Game {
         document.querySelector('#upgrade-skull').addEventListener('click', () => {
             this.renderFatalityModal()
         })
+    }
+    selectUpgrade(upgrade){
+        const descriptionContainer = document.querySelector('#modal-body > .modal-upgrades > .description-container');
+        const description = document.createElement('div');
+        description.classList.add('description');
+        description.innerHTML = this.upgradeDescriptions[upgrade];
+        const upgradeButton = document.createElement('div');
+        upgradeButton.classList.add('upgrade-button');
+        upgradeButton.innerHTML = "Upgrade";
+        upgradeButton.addEventListener('click', () => this.purchaseUpgrade(upgrade));
+        descriptionContainer.append(description, upgradeButton);
     }
     purchaseUpgrade(type){
         const numPoints = this.virus.getUpgradeCost(type);

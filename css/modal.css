@@ -16,10 +16,11 @@
     display: flex;
     flex-direction: column;
     color: #C0E0DE;
+    width: 35rem;
 }
 
 #modal-title{
-    padding: 1rem 0;
+    padding: 1rem;
     font-size: 200%;
     font-weight: 600;
     display: flex;
@@ -57,31 +58,78 @@
     margin:2rem;
 }
 
-.modal-upgrades{
-    display: flex;
-}
-.modal-upgrades > div {
-    height: 9rem;
+.modal-upgrades {
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
-.modal-upgrades > div > div{
+.modal-upgrades > .action-row:nth-of-type(odd){
+    justify-content: flex-start;
+}
+.modal-upgrades > .action-row:nth-of-type(even){
+    justify-content: flex-end;
+}
+.modal-upgrades > .description-container{
+    display: flex;
+    margin-top: 1rem;
+    padding: 0 1rem;
+}
+.modal-upgrades > .description-container > div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px black;
+}
+.modal-upgrades > .description-container > .description {
+    padding: 1rem;
+}
+.modal-upgrades > .description-container > .upgrade-button{
+    height: 2.5rem;
+    width: 20rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background-color: #C0E0DE;
+    color: #000103;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px black;
+    margin-left: 3rem;
+    cursor: pointer;
+}
+.modal-upgrades > .action-row{
+    margin-top: 2rem;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.modal-upgrades > .action-row > .header{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-shadow: 1px 1px 3px black;
+    box-shadow: 0px 3px 3px -3px black;
+    margin-bottom: 1rem;
+}
+.modal-upgrades > .action-row > .actions{
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    align-items: center;
+    margin-right: 1rem;
 }
 
-.modal-upgrades > div > div svg path{
+.modal-upgrades > .action-row > .actions svg path{
     fill: black;
-}
-.modal-upgrades > div > div svg{
-    transform: rotate(180deg);
-    height: 2rem;
-    width: 2.5rem;
     cursor: pointer;
-    margin-left: 1rem;
 }
-.modal-upgrades > div > div input{
+.modal-upgrades > .action-row > .actions svg{
+    height: 4rem;
+    width: 4rem;
+    cursor: pointer;
+    margin: 0 1rem;
+}
+.modal-upgrades > .action-row > .actions input{
     height: 2.5rem;
     width: 2.75rem;
     text-align: center;
@@ -90,5 +138,4 @@
     outline: none;
     border:none;
     cursor: default;
-    margin-right: 1rem;
 }
