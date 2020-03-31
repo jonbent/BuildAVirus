@@ -33,14 +33,14 @@ module.exports = class Virus {
 
   upgradeFatality(type){
       this.fatalities[type] += 1;
-        this.game.countryKeys.forEach(key => {
+      this.game.countryKeys.forEach(key => {
           this.game.countries[key].startMortality();
       })
 
   }
 
   upgradeAbility(type){
-      if (this.abilityTimeouts[type]) {clearTimeout(this.abilityTimeouts[type]);}
+      if (this.abilityTimeouts[type]) clearTimeout(this.abilityTimeouts[type]);
       this.abilities[type] += 1;
       const timeoutFunction = ( ) => {
           const randomCountryName = this.game.countryKeys[Math.floor(Math.random() * this.game.countryKeys.length)];
@@ -48,7 +48,7 @@ module.exports = class Virus {
           if (this.game.infectCountry(this.game.countries[randomCountryName], this.game.countries[secondRandomCountryName]) && this.game.countries[randomCountryName].infected === false) {
               this.game.map.updateChoropleth({
                     [this.game.countries[randomCountryName].id]: 'red'
-                });
+              });
               this.game.countries[randomCountryName].startSpread();
               this.game.board.generateBubble({event: {title: `${this.game.countries[randomCountryName].properties.name} has been infected`, description: `${this.name} was just found in turkey due to a bird! sucks`}, location: this.game.countries[randomCountryName]});
           }
@@ -59,8 +59,8 @@ module.exports = class Virus {
             // this.game.infectCountry()
           }, (Math.floor(Math.random() * 500) / this.abilities[type]) + 20)
           // }, 20)
-      }
-    timeoutFunction()
+      };
+    timeoutFunction();
   }
 
 

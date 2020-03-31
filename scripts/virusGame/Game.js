@@ -173,6 +173,7 @@ module.exports = class Game {
     }
     selectUpgrade(upgrade){
         const descriptionContainer = document.querySelector('#modal-body > .modal-upgrades > .description-container');
+        descriptionContainer.innerHTML = "";
         const description = document.createElement('div');
         description.classList.add('description');
         description.innerHTML = this.upgradeDescriptions[upgrade];

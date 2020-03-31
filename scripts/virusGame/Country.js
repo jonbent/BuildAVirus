@@ -50,7 +50,7 @@ module.exports = class Country {
         }, this.game.virus.mortalityRate())
     }
     airportTick(){
-        if (!this.airports) return null
+        if (!this.airports) return null;
         const gameCountryKeys = Object.keys(this.game.countries);
         const interval = setInterval(() => {
 
