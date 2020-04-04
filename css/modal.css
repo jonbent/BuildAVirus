@@ -15,7 +15,7 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    color: #C0E0DE;
+    color: white;
     width: 35rem;
 }
 
@@ -44,7 +44,7 @@
     border-radius: 10px;
     min-height: 3rem;
     cursor: pointer;
-    color: #C0E0DE;
+    color: white;
     background-color: #000103;
     border: none;
 }
@@ -91,7 +91,7 @@
     text-align: center;
     display: flex;
     align-items: center;
-    background-color: #C0E0DE;
+    background-color: white;
     color: #000103;
     justify-content: center;
     border-radius: 5px;

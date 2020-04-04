@@ -6,7 +6,7 @@
 	red: #DD1C1A
 	blue: #002642
 	black: #000103
-	white: #C0E0DE
+	white: white
 	gray: #3C3744
 */
 html, body, div, span, applet, object, iframe,
@@ -28,7 +28,8 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: 'Gloria Hallelujah', cursive;
+	/*font-family: 'Gloria Hallelujah', cursive;*/
+	font-family: 'Montserrat', sans-serif;
 }
 button:focus{
 	outline: none;
@@ -68,7 +69,7 @@ body{
 	min-height: 5rem;
 	width: 100%;
 	background-color: #3C3744;
-	color: #C0E0DE;
+	color: white;
 	display: flex;
 	justify-content: space-between;
 }
@@ -96,7 +97,7 @@ body{
 	max-height: calc(100% - 5rem);
 	width: 100%;
 	display: flex;
-	background-color: #C0E0DE;
+	background-color: white;
 }
 
 #flex-break{

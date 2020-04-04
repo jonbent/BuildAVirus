@@ -308,13 +308,13 @@ module.exports=[
     "title": "Scientists fight to find a cure",
     "description": "The infectious disease specialists have grown tired of letting everyone die",
     "severity": 3,
-    "type": "positive"
+    "type": "cure"
   },
   {
     "title": "Doctors have cured a strain",
     "description": "The humans have fought hard, and developed an immunity",
     "severity": 3,
-    "type": "positive"
+    "type": "cure"
   },
   {
     "title": "The Clouds have parted",
@@ -385,6 +385,7 @@ module.exports = (color, percent) => {
 const Game = require('./virusGame/Game.js');
 const BlackPlague = require('./virusGame/virusClasses/BlackPlague');
 const SmallPox = require('./virusGame/virusClasses/SmallPox');
+const Custom = require('./virusGame/virusClasses/Custom');
 // window.country_pop = require('../json/country_populations');
 // window.airports = require('../json/airports');
 const arrowInCircle = require('../html/svg/arrow-in-circle');
@@ -393,18 +394,47 @@ document.addEventListener('DOMContentLoaded', () => {
     virusSelectHandler();
 });
 const virusSelectHandler = () => {
-    document.querySelector('.splash-card').addEventListener('click', e => {
-        switch(e.target.innerHTML){
-            case 'Small Pox':
-                renderModal();
-                renderMap(SmallPox);
-                break;
-            case 'Bubonic Plague':
-                renderModal();
-                renderMap(BlackPlague);
-                break;
-            default:
-                break;
+    document.querySelector('.splash-selection').addEventListener('click', e => {
+        if (e.target.classList.contains('selection-box') || e.target.classList.contains('button')){
+            switch(e.target.innerHTML){
+                case 'Small Pox':
+                    renderModal();
+                    renderMap(SmallPox);
+                    break;
+                case 'Bubonic Plague':
+                    renderModal();
+                    renderMap(BlackPlague);
+                    break;
+                case 'Custom':
+                    const customVirus = document.createElement("div");
+                    customVirus.classList.add('selection-box', 'custom-input');
+                    const newVirus = document.createElement("input");
+                    newVirus.placeholder = "Enter Custom Virus Name";
+                    newVirus.classList.add("new-virus-input");
+                    const submitNewVirusinput = document.createElement("div");
+                    submitNewVirusinput.classList.add('button');
+                    submitNewVirusinput.innerHTML = "Create";
+                    customVirus.appendChild(newVirus);
+                    customVirus.appendChild(submitNewVirusinput);
+                    e.target.innerHTML = "";
+                    e.target.parentNode.replaceChild(customVirus, e.target);
+                    break;
+                case "Create":
+                    const input = e.target.parentNode.children[0];
+                    if (input.value === "" || input.value.length > 20) {
+                        const error = document.createElement("div");
+                        error.classList.add("error");
+                        error.innerHTML = "Virus must have a name with no more than 20 characters.";
+                        e.currentTarget.appendChild(error);
+                        break;
+                    }
+                    renderModal();
+                    renderMap(Custom(e.target.parentNode.children[0].value));
+                    break;
+                default:
+                    break;
+            }
+
         }
     });
 };
@@ -412,7 +442,7 @@ const modalConfirmHandler = () => {
     document.querySelector('#modal-body button').addEventListener('click', () => {
         closeModal();
     })
-}
+};
 window.renderModal = (modalType = 'confirmStart', options = {}) => {
     document.querySelector('#modal').innerHTML = require('../html/modal')(modalType, options);
     modalConfirmHandler();
@@ -430,7 +460,7 @@ const renderMap = (virus) => {
                 <div id="world-map-container">
                     <div id="world-map"></div>
                     <div id="map-side-bar-container">
-                        <div id="side-bar-header">World News</div>
+                        <div id="side-bar-header"><span>World News</span></div>
                         <div id="map-side-bar"></div>
                         <div id="side-bar-footer"></div>
                     </div>
@@ -441,16 +471,20 @@ const renderMap = (virus) => {
                         <div>Points Spent: <span id="points-spent"></span></div>
                         <div>Points Gained: <span id="points-gained"></span></div>
                     </div>
-                    <div id="game-actions">
-                        <div>${arrowInCircle}</div>
-                        <div>${skullAndBones}</div>
+                    <div id="game-actions-container">
+                        <h3 class="header">Upgrades</h3>
+                        <div id="game-actions">
+                        
+                            <div>${arrowInCircle}</div>
+                            <div>${skullAndBones}</div>
+                        </div>
                     </div>
                 </div>
             </div>`;
 
         window.game = new Game(virus);
     };
-},{"../html/modal":1,"../html/svg/arrow-in-circle":5,"../html/svg/skull-and-bones":13,"./virusGame/Game.js":21,"./virusGame/virusClasses/BlackPlague":24,"./virusGame/virusClasses/SmallPox":25}],19:[function(require,module,exports){
+},{"../html/modal":1,"../html/svg/arrow-in-circle":5,"../html/svg/skull-and-bones":13,"./virusGame/Game.js":21,"./virusGame/virusClasses/BlackPlague":25,"./virusGame/virusClasses/Custom":26,"./virusGame/virusClasses/SmallPox":27}],19:[function(require,module,exports){
 module.exports = class Board {
     constructor({map, game}) {
         this.map = map;
@@ -489,6 +523,7 @@ module.exports = class Board {
 },{}],20:[function(require,module,exports){
 const Airport = require('./abilities/Airport');
 const darkenHexColors = require('../darkenHexColors');
+const redifyHexColors = require('./util/redifyHexColor');
 
 module.exports = class Country {
     constructor({airports, infected, numInfected, spreadRate, spreadChance, id, properties, population, hasPorts, game}) {
@@ -503,12 +538,31 @@ module.exports = class Country {
         this.population = population;
         this.hasPorts = hasPorts;
         this.game = game;
+        this.curable = false;
+        this.cureRate = 0;
+        this.numCured = 0;
+    }
+    event(event){
+        if (event.type === "cure"){
+            if (!this.curable && (Math.random() * 1000) < event.severity) {
+                this.cureRate = Math.floor(Math.random() * 10)
+            } else if (!!this.curable) {
+                this.numCured += this.numInfected() * (this.cureRate / 1000);
+            }
+        } else if (event.type === "positive") {
+            this.spreadRate += Math.random() * (event.severity * 100);
+        } else if (event.type === "negative"){
+            this.numKilled += this.numAlive() / (event.severity * 1000);
+        }
     }
     numHealthy(){
         return this.population - this.numInfected;
     }
     numAlive(){
         return this.population - this.numKilled;
+    }
+    numInfected(){
+        return this.numInfected - this.numKilled - this.numCured;
     }
 
     tick(){
@@ -594,12 +648,17 @@ module.exports = class Country {
                 this.numInfected += count;
             }
             if (this.game.numInfected() > this.game.totalPop() / 5 && !this.game.eventsStarted) this.game.startEvents();
+            if (!this.mortalityInterval) {
+                this.game.map.updateChoropleth({
+                    [this.id]: redifyHexColors('DD1C1A', Math.round( (this.numKilled / this.population) * 100))
+                })
 
-        }
+            }
+        };
         callback();
     }
-}
-},{"../darkenHexColors":17,"./abilities/Airport":23}],21:[function(require,module,exports){
+};
+},{"../darkenHexColors":17,"./abilities/Airport":23,"./util/redifyHexColor":24}],21:[function(require,module,exports){
 // concept
     // start out with base infectivity
     // increase based on symptom upgrades
@@ -630,6 +689,9 @@ module.exports = class Game {
         this.pointsSpent = 0;
         this.points = 0;
         this.virus = new virus({game: this});
+        const headerDescripton = document.createElement("span");
+        headerDescripton.innerHTML = this.virus.name;
+        document.querySelector("#side-bar-header").appendChild(headerDescripton);
         this.upgradeDescriptions = {
             mosquito: `Transmit ${this.virus.name} through mosquitos. This upgrade is more effective in poorer countries.`,
             bird: `Transmit ${this.virus.name} through birds. This upgrade is semi-effective all across the world.`,
@@ -673,13 +735,14 @@ module.exports = class Game {
             scope: 'world',
             height: null, // If not null, datamaps will grab the height of 'element'
             width: null, // If not null, datamaps will grab the width of 'element',
+             // responsive: true,
             fills: {
                 defaultFill: 'rgb(0,128,0)', // Any hex, color name or rgb/rgba value
 
             },
             geographyConfig: {
                 popupTemplate: this.popupTemplate(),
-                highlightFillColor: () => 'red'
+                highlightFillColor: () => 'yellow'
             }
         });
         this.countrySelectHandler();
@@ -710,12 +773,9 @@ module.exports = class Game {
         this.map.svg.selectAll('.datamaps-subunit').on('click', geo => {
             const worldInfo = document.querySelector('#world-info');
             const worldInfoSpecific = document.querySelector('#world-info-specific');
+            // console.log(this.countries[geo.properties.name].id);
             if (!this.startingCountry) {
-                worldInfo.classList.add('started');
-                worldInfoSpecific.classList.add('started');
-                this.map.updateChoropleth({
-                    [this.countries[geo.properties.name].id]: 'red'
-                });
+
             }
 
             let info = {name: geo.properties.name, totalPop: this.totalPop(geo.properties.name), healthyPop: this.numHealthy(geo.properties.name), infectedPop: this.numInfected(geo.properties.name), deadPop: this.numKilled(geo.properties.name)}
@@ -729,9 +789,14 @@ module.exports = class Game {
                 this.updateInfoPanel();
                 this.countryKeys.forEach(c => this.countries[c].tick());
 
-                this.countries[this.selectedCountry].startSpread()
+                this.countries[this.selectedCountry].startSpread();
 
                 this.board.generateBubble({event: {title: `${this.selectedCountry} has been infected`, description: `${this.virus.name} has started taking control of it's hosts`}, location: this.countries[this.selectedCountry]})
+                worldInfo.classList.add('started');
+                worldInfoSpecific.classList.add('started');
+                this.map.updateChoropleth({
+                    [this.countries[geo.properties.name].id]: 'red'
+                });
 
             } else {
                 worldInfoSpecific.innerHTML = worldInfoItem(info);
@@ -881,11 +946,16 @@ module.exports = class Game {
     }
     startEvents(){
         this.eventsStarted = true;
+
         const min = 30000, max = 7000;
         const rand = Math.floor(Math.random() * (max - min + 1) + min);
+
         const randEvent = Math.floor(Math.random() * this.events.length);
         const randCountry = Math.floor(Math.random() * this.countryKeys.length);
+
         this.board.generateBubble({event: this.events[randEvent], location: this.countries[this.countryKeys[randCountry]]});
+        this.countries[this.countryKeys[randCountry]].event(this.events[randEvent]);
+
         setTimeout(() => this.startEvents(), rand)
     }
     updateInfoPanel(){
@@ -1012,6 +1082,16 @@ module.exports = class Airport {
 
 }
 },{}],24:[function(require,module,exports){
+module.exports = (color, percent) => {
+  	const num = parseInt(color,16),
+		amt = Math.round(-1 * Math.round(percent / 500000)),
+		R = (num >> 16) + amt,
+		B = (num >> 8 & 0x00FF) + amt,
+		G = (num & 0x0000FF) - amt;
+
+		return "#" + (0x1000000 + (R<221?R<1?0:R:221)*0x10000 + (B<26?B<1?0:B:26)*0x100 + (G<28?G<1?0:G:28)).toString(16).slice(1);
+};
+},{}],25:[function(require,module,exports){
 const Virus = require('../Virus');
 
 module.exports = class BlackPlague extends Virus {
@@ -1020,7 +1100,16 @@ module.exports = class BlackPlague extends Virus {
 
     }
 }
-},{"../Virus":22}],25:[function(require,module,exports){
+},{"../Virus":22}],26:[function(require,module,exports){
+const Virus = require('../Virus');
+
+module.exports = (name) => class BlackPlague extends Virus {
+    constructor(props) {
+        super({...props, name})
+
+    }
+};
+},{"../Virus":22}],27:[function(require,module,exports){
 const Virus = require('../Virus');
 
 module.exports = class BlackPlague extends Virus {
