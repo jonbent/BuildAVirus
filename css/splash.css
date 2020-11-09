@@ -3,13 +3,13 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #C0E0DE;
+    background-color: white;
     color: #000103;
 }
 
 .splash h3.splash-header{
     background-color: #000103;
-    color: #C0E0DE;
+    color: white;
     padding: 2rem 0;
     font-size: 200%;
     font-weight: bolder;
@@ -23,7 +23,6 @@
     display: flex;
     justify-content: center;
 }
-
 .splash .splash-content {
     display: flex;
     height: 100%;
@@ -31,31 +30,90 @@
     justify-content: center;
     align-items: center;
 }
-.splash .splash-card{
-    width: 70%;
+.splash .splash-image {
+    background-image: url("../public/images/1800x1200_coronavirus_1.jpg");
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex: 1 0;
+    height: 100%;
+}
+.splash .splash-card-container{
+    flex: 2 0;
     height: 70%;
     color: #000103;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
 }
+.splash .splash-card-container .description{
+    width: 100%;
+    max-width: 544px;
+}
+.splash .splash-card-container .description p{
+    font-size: 125%;
+}
+.splash .splash-card-container .description h2{
+    margin-bottom: 1rem;
+    font-size: 200%;
+    font-weight: 600;
+}
+.splash .splash-card-container .splash-card{
+    width: 100%;
+    max-width: 544px;
+    margin-top: 5rem;
+}
+
 .splash .splash-card .splash-selection{
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
 
 }
 
+.splash .splash-card .splash-selection .error{
+    color: red;
+    padding: 1rem 0;
+}
+
+.splash .splash-card .splash-selection .selection-box.custom-input{
+    justify-content: space-between;
+
+}
+.splash .splash-card .splash-selection .selection-box.custom-input input{
+    margin-left: 1rem;
+    flex: 4;
+    padding: 0.75rem 0.5rem;
+    font-size: 110%;
+    border-radius: 5px;
+    outline: none !important;
+    border: 2px solid gray;
+}
+.splash .splash-card .splash-selection .selection-box.custom-input input:focus{
+    border-color: black;
+}
+.splash .splash-card .splash-selection .selection-box.custom-input .button{
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    flex: 1;
+    text-align: center;
+    background-color: black;
+
+}
+
 .splash .splash-card .splash-selection .selection-box{
-    width: 7rem;
-    height: 3rem;
+    /*height:*/
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1rem 0;
     background-color: #3C3744;
-    color: #C0E0DE;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
     cursor: pointer;
+    font-size: 150%;
 }

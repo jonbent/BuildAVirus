@@ -1,5 +1,6 @@
 const Airport = require('./abilities/Airport');
 const darkenHexColors = require('../darkenHexColors');
+const redifyHexColors = require('./util/redifyHexColor');
 
 module.exports = class Country {
     constructor({airports, infected, numInfected, spreadRate, spreadChance, id, properties, population, hasPorts, game}) {
@@ -14,12 +15,31 @@ module.exports = class Country {
         this.population = population;
         this.hasPorts = hasPorts;
         this.game = game;
+        this.curable = false;
+        this.cureRate = 0;
+        this.numCured = 0;
+    }
+    event(event){
+        if (event.type === "cure"){
+            if (!this.curable && (Math.random() * 1000) < event.severity) {
+                this.cureRate = Math.floor(Math.random() * 10)
+            } else if (!!this.curable) {
+                this.numCured += this.numInfected() * (this.cureRate / 1000);
+            }
+        } else if (event.type === "positive") {
+            this.spreadRate += Math.random() * (event.severity * 100);
+        } else if (event.type === "negative"){
+            this.numKilled += this.numAlive() / (event.severity * 1000);
+        }
     }
     numHealthy(){
         return this.population - this.numInfected;
     }
     numAlive(){
         return this.population - this.numKilled;
+    }
+    numInfected(){
+        return this.numInfected - this.numKilled - this.numCured;
     }
 
     tick(){
@@ -50,7 +70,7 @@ module.exports = class Country {
         }, this.game.virus.mortalityRate())
     }
     airportTick(){
-        if (!this.airports) return null
+        if (!this.airports) return null;
         const gameCountryKeys = Object.keys(this.game.countries);
         const interval = setInterval(() => {
 
@@ -105,8 +125,13 @@ module.exports = class Country {
                 this.numInfected += count;
             }
             if (this.game.numInfected() > this.game.totalPop() / 5 && !this.game.eventsStarted) this.game.startEvents();
+            if (!this.mortalityInterval) {
+                this.game.map.updateChoropleth({
+                    [this.id]: redifyHexColors('DD1C1A', Math.round( (this.numKilled / this.population) * 100))
+                })
 
-        }
+            }
+        };
         callback();
     }
-}
+};

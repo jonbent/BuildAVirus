@@ -3,7 +3,7 @@
     z-index: 10001;
     position: absolute;
     display: block;
-    color: #C0E0DE;
+    color: white;
     background-color: #000103;
     padding: 0.5rem;
     font-size: 150%;
@@ -12,7 +12,7 @@
 }
 .country-select .hoverinfo {
     background-color: #000103;
-    color: #C0E0DE;
+    color: white;
     border: none;
     box-shadow: none;
 }

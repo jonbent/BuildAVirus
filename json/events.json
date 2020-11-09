@@ -69,13 +69,13 @@
     "title": "Scientists fight to find a cure",
     "description": "The infectious disease specialists have grown tired of letting everyone die",
     "severity": 3,
-    "type": "positive"
+    "type": "cure"
   },
   {
     "title": "Doctors have cured a strain",
     "description": "The humans have fought hard, and developed an immunity",
     "severity": 3,
-    "type": "positive"
+    "type": "cure"
   },
   {
     "title": "The Clouds have parted",

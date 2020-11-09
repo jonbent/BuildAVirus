@@ -19,7 +19,7 @@ const worldInfoItem = require('../../html/world-info-item');
 
 module.exports = class Game {
     constructor(virus) {
-        this.startGame()
+        this.startGame();
         this.board = new Board({map: this.map, game: this});
         this.events = events;
         this.intervals = {};
@@ -28,7 +28,16 @@ module.exports = class Game {
         this.pointsSpent = 0;
         this.points = 0;
         this.virus = new virus({game: this});
-        window.virus = this.virus
+        const headerDescripton = document.createElement("span");
+        headerDescripton.innerHTML = this.virus.name;
+        document.querySelector("#side-bar-header").appendChild(headerDescripton);
+        this.upgradeDescriptions = {
+            mosquito: `Transmit ${this.virus.name} through mosquitos. This upgrade is more effective in poorer countries.`,
+            bird: `Transmit ${this.virus.name} through birds. This upgrade is semi-effective all across the world.`,
+            contact: `Transmit ${this.virus.name} through human contact. This upgrade is more effective in dense areas.`,
+            congestion: `Transmit ${this.virus.name} through human contact. This upgrade is semi-effective all across the world.`,
+        };
+        window.virus = this.virus;
 
         const newCountries = {};
         Object.keys(countries).forEach(cName => {
@@ -48,8 +57,7 @@ module.exports = class Game {
         this.numBubblesClicked = 0;
         this.selectedCountry = null;
         this.startingCountry = null;
-
-        // this.startEvents();
+        this.selectedUpgrade = null;
     }
     calculateTotalPoints(){
         let total = 0;
@@ -66,13 +74,14 @@ module.exports = class Game {
             scope: 'world',
             height: null, // If not null, datamaps will grab the height of 'element'
             width: null, // If not null, datamaps will grab the width of 'element',
+             // responsive: true,
             fills: {
                 defaultFill: 'rgb(0,128,0)', // Any hex, color name or rgb/rgba value
 
             },
             geographyConfig: {
                 popupTemplate: this.popupTemplate(),
-                highlightFillColor: () => 'red'
+                highlightFillColor: () => 'yellow'
             }
         });
         this.countrySelectHandler();
@@ -103,12 +112,9 @@ module.exports = class Game {
         this.map.svg.selectAll('.datamaps-subunit').on('click', geo => {
             const worldInfo = document.querySelector('#world-info');
             const worldInfoSpecific = document.querySelector('#world-info-specific');
+            // console.log(this.countries[geo.properties.name].id);
             if (!this.startingCountry) {
-                worldInfo.classList.add('started');
-                worldInfoSpecific.classList.add('started');
-                this.map.updateChoropleth({
-                    [this.countries[geo.properties.name].id]: 'red'
-                });
+
             }
 
             let info = {name: geo.properties.name, totalPop: this.totalPop(geo.properties.name), healthyPop: this.numHealthy(geo.properties.name), infectedPop: this.numInfected(geo.properties.name), deadPop: this.numKilled(geo.properties.name)}
@@ -122,9 +128,14 @@ module.exports = class Game {
                 this.updateInfoPanel();
                 this.countryKeys.forEach(c => this.countries[c].tick());
 
-                this.countries[this.selectedCountry].startSpread()
+                this.countries[this.selectedCountry].startSpread();
 
                 this.board.generateBubble({event: {title: `${this.selectedCountry} has been infected`, description: `${this.virus.name} has started taking control of it's hosts`}, location: this.countries[this.selectedCountry]})
+                worldInfo.classList.add('started');
+                worldInfoSpecific.classList.add('started');
+                this.map.updateChoropleth({
+                    [this.countries[geo.properties.name].id]: 'red'
+                });
 
             } else {
                 worldInfoSpecific.innerHTML = worldInfoItem(info);
@@ -139,22 +150,22 @@ module.exports = class Game {
         });
     }
     renderUpgradeModal(){
-        window.renderModal('upgradePaths', {virus: this.virus})
-        document.querySelectorAll('.modal-upgrades > div').forEach(el => {
+        window.renderModal('upgradePaths', {virus: this.virus, selectedUpgrade: this.selectedUpgrade});
+        document.querySelectorAll('.modal-upgrades > .action-row > .actions').forEach(el => {
             const upgradeType = el.id.split('-')[0];
-            el.querySelector('.input-and-action svg').addEventListener('click', () => {
-                this.purchaseUpgrade(upgradeType);
+            el.querySelector('svg g').addEventListener('click', () => {
+                this.selectUpgrade(upgradeType);
             })
         })
     }
     renderFatalityModal(){
         window.renderModal('fatalityPaths', {virus: this.virus})
-        document.querySelectorAll('.modal-upgrades > div').forEach(el => {
-            const upgradeType = el.id.split('-')[0];
-            el.querySelector('.input-and-action svg').addEventListener('click', () => {
-                this.purchaseFatality(upgradeType);
-            })
-        })
+        // document.querySelectorAll('.modal-upgrades > div').forEach(el => {
+        //     const upgradeType = el.id.split('-')[0];
+            // el.querySelector('.input-and-action svg').addEventListener('click', () => {
+            //     this.purchaseFatality(upgradeType);
+            // })
+        // })
     }
     upgradeButtonHandler(){
         document.querySelector('#upgrade-arrow').addEventListener('click', () => {
@@ -165,6 +176,18 @@ module.exports = class Game {
         document.querySelector('#upgrade-skull').addEventListener('click', () => {
             this.renderFatalityModal()
         })
+    }
+    selectUpgrade(upgrade){
+        const descriptionContainer = document.querySelector('#modal-body > .modal-upgrades > .description-container');
+        descriptionContainer.innerHTML = "";
+        const description = document.createElement('div');
+        description.classList.add('description');
+        description.innerHTML = this.upgradeDescriptions[upgrade];
+        const upgradeButton = document.createElement('div');
+        upgradeButton.classList.add('upgrade-button');
+        upgradeButton.innerHTML = "Upgrade";
+        upgradeButton.addEventListener('click', () => this.purchaseUpgrade(upgrade));
+        descriptionContainer.append(description, upgradeButton);
     }
     purchaseUpgrade(type){
         const numPoints = this.virus.getUpgradeCost(type);
@@ -262,11 +285,16 @@ module.exports = class Game {
     }
     startEvents(){
         this.eventsStarted = true;
+
         const min = 30000, max = 7000;
         const rand = Math.floor(Math.random() * (max - min + 1) + min);
+
         const randEvent = Math.floor(Math.random() * this.events.length);
         const randCountry = Math.floor(Math.random() * this.countryKeys.length);
+
         this.board.generateBubble({event: this.events[randEvent], location: this.countries[this.countryKeys[randCountry]]});
+        this.countries[this.countryKeys[randCountry]].event(this.events[randEvent]);
+
         setTimeout(() => this.startEvents(), rand)
     }
     updateInfoPanel(){
